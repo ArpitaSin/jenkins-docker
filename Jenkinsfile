@@ -12,12 +12,12 @@ pipeline {
         bat 'docker build -t ArpitaSin/jenkins-docker .'
       }
     }
-    stage('Login to Docker ') {
+    stage('Login to Docker Hub') {
       steps {
         bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
       }
     }
-    stage('Push to Docker hub') {
+    stage('Push to Docker Hub') {
       steps {
         bat 'docker push ArpitaSin/jenkins-docker'
       }
