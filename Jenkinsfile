@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build using Maven.') {
       steps {
-        bat 'docker build -t arpitasin/jenkins-docker .'
+        bat 'docker build -t arpitaomkarsingh/jenkins-docker .'
       }
     }
     stage('Login to Docker Hub.') {
@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push to Docker Hub.') {
       steps {
-        bat 'docker push arpitasin/jenkins-docker'
+        bat 'docker push arpitaomkarsingh/jenkins-docker'
       }
     }
   }
