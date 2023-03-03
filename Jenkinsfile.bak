@@ -7,17 +7,17 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('dockerhub')
   }
   stages {
-    stage('Build using Maven') {
+    stage('Build') {
       steps {
         bat 'docker build -t arpitasin/jenkins-docker-hub .'
       }
     }
-    stage('Login to Docker ') {
+    stage('Login') {
       steps {
         bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
       }
     }
-    stage('Push to Docker hub') {
+    stage('Push') {
       steps {
         bat 'docker push arpitasin/jenkins-docker-hub'
       }
